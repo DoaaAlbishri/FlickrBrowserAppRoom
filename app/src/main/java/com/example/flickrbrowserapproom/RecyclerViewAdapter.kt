@@ -26,6 +26,10 @@ class RecyclerViewAdapter(
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val image=images[position]
         holder.itemView.apply{
+         //   if(Favimages.contains(image.title)) {
+         //       println(image.ID)
+         //       imageButton.setImageResource(R.drawable.ic_baseline_favorite_24)
+         //   }
             tvImage.text= image.title
             Glide.with(this)
                 .load(image.link)
@@ -34,8 +38,6 @@ class RecyclerViewAdapter(
             llItem.setOnClickListener {
                 mainActivity.openImage(image.link)
             }
-            if(Favimages.contains(image))
-                imageButton.setImageResource(R.drawable.ic_baseline_favorite_24)
             //add image to fav
             imageButton.setOnClickListener {
                 if(!Favimages.contains(image))
@@ -69,6 +71,7 @@ class RecyclerViewAdapter2(
         val image=images[position]
         holder.itemView.apply{
             imageButton.setImageResource(R.drawable.ic_baseline_favorite_24)
+          //  imageButton.setImageResource(R.drawable.ic_baseline_favorite_border_24)
             tvImage.text= image.title
             Glide.with(this)
                 .load(image.link)

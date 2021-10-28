@@ -47,6 +47,9 @@ class MainActivity : AppCompatActivity() {
 
         button.setOnClickListener {
             // fetch data
+            if(editText.text.isEmpty())
+                Toast.makeText(this, "Fill the filed please", Toast.LENGTH_SHORT).show()
+            else
             fetchData(editText.text.toString())
         }
         // close image
